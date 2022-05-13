@@ -1,2 +1,13 @@
-<h1>{{appTitle}} 🚀</h1>
+<h1>{{user.username}} 🚀</h1>
 <p>Welcome Ironhacker!</p>
+{{#unless user}}
+<a href="/all-movies">Search Movies</a>
+<a href="auth/login">Login</a>
+<a href="auth/signup">Signup</a>
+{{/unless}}
+{{#if user}}
+<a href="/all-movies">Search Movies</a>
+<a href="auth/logout">Logout</a>
+{{/if}}
+
+

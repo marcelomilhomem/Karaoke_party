@@ -19,7 +19,7 @@ const app = express();
 require("./config")(app);
 
 const capitalized = require("./utils/capitalized");
-const projectName = "karaoke-party";
+const projectName = "marven-project";
 
 app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 
@@ -29,6 +29,9 @@ app.use("/", index);
 
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
+
+const moviesRoute = require("./routes/movie.routes");
+app.use("/movies", moviesRoute)
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
