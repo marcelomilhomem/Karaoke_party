@@ -1,2 +1,8 @@
-<h1>{{movieList.title}}</h1>
-<p>{{movieList.overview}}</p>
+<h1>{{movieDetail.name}}</h1>
+<p>{{movieDetail.overview}}</p>
+<p>{{movieDetail.release_date}}</p>
+<p>{{movieDetail.runtime}}</p>
+<p>{{movieDetail.vote_average}}</p>
+{{#each movieDetail.genres}}
+<p>{{name}}</p>
+{{/each}}

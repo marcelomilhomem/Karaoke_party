@@ -22,6 +22,22 @@ router.get("/movie-search", (req, res, next) => {
         .catch((err) => next(err));
 });
 
+router.get("/movie-detail/:movieID", (req, res, next) => {
+    const { movieID } = req.params;
+    axios
+        .get(
+            `https://api.themoviedb.org/3/movie/${movieID}?api_key=${process.env.API_KEY}&language=en-US`
+        )
+        .then((response) => {
+            const movieDetail = response.data;
+            res.render("movies/movie-detail",  {movieDetail} );
+        })
+        .catch((err) => next(err));
+});
+
+
+
+
 router.get("/movie-random", isLoggedIn, (req, res, next) => {
     res.render("movies/movie-random");
 });
