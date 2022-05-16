@@ -15,7 +15,7 @@ router.get("/movie-search", (req, res, next) => {
         )
         .then((response) => {
             response.data.results.forEach((element) => {
-                console.log(element.title);
+                console.log(element);
             });
             res.render("movies/search-movie", { movieList: response.data.results });
         })
