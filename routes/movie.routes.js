@@ -36,6 +36,20 @@ router.get("/movie-detail/:movieID", (req, res, next) => {
 });
 
 
+router.get("/movie-detail/:movieID", (req, res, next) => {
+    const { movieID } = req.params;
+    axios
+        .get(
+            `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${process.env.API_KEY}&language=en-US`
+        )
+        .then((response) => {
+            console.log(response);
+            res.render("movies/movie-detail",  {movieVideo} );
+        })
+        .catch((err) => next(err));
+});
+
+
 
 
 router.get("/movie-random", isLoggedIn, (req, res, next) => {
