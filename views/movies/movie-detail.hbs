@@ -1,8 +1,22 @@
-<h1>{{movieDetail.name}}</h1>
+<h1>{{movieDetail.original_title}}</h1>
+<img
+  class="movie-img"
+  src="http://image.tmdb.org/t/p/w1280/{{movieDetail.backdrop_path}}"
+  alt=""
+/>
 <p>{{movieDetail.overview}}</p>
 <p>{{movieDetail.release_date}}</p>
 <p>{{movieDetail.runtime}}</p>
 <p>{{movieDetail.vote_average}}</p>
 {{#each movieDetail.genres}}
-<p>{{name}}</p>
+  <p>{{name}}</p>
 {{/each}}
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/{{movieVideo}}"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>

@@ -15,7 +15,7 @@ const userSchema = new Schema({
         type: String,
         default: "images/favicon.ico",
     },
-    preference: {},
+    favourites: [],
 }, {
     // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,

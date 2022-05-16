@@ -14,4 +14,9 @@
 {{/unless}}
 {{#if user}}
   <a href="auth/logout">Logout</a>
+    <form action="/movies/movie-search" method="GET">
+    <label>
+      Search Movie
+      <input type="text" name="title" />
+    </label>
 {{/if}}
