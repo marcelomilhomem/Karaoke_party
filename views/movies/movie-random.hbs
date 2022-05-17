@@ -1,7 +1,19 @@
 <h1>Movie Random</h1>
 {{randomMovie.original_title}}
 {{randomMovie.release_data}}
-{{randomMovie.title}}
-{{randomMovie.title}}
-{{randomMovie.title}}
-{{randomMovie.title}}
+{{randomMovie.overview}}
+<img
+  class="movie-img"
+  src="http://image.tmdb.org/t/p/w1280/{{randomMovie.poster_path}}"
+  alt=""
+/>
+{{randomMovie.runtime}}
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/{{movieVideo}}"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>

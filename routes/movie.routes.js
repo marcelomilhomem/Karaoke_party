@@ -51,13 +51,11 @@ router.get("/favourite-movies", (req, res, next) => {
   User.findById(user._id)
     .populate("favourites")
     .then((user) => {
-      console.log(user);
       res.render("movies/movies-list", { user });
     });
 });
 
 router.post("/favourite-movies/:id", (req, res, next) => {
-  console.log(req.body);
   const { id } = req.params;
   axios
     .get(
@@ -65,7 +63,6 @@ router.post("/favourite-movies/:id", (req, res, next) => {
     )
     .then((response) => {
       const movie = response.data;
-      console.log(movie);
       Movie.create({
         title: movie.original_title,
         image: movie.poster_path,
@@ -87,7 +84,6 @@ router.get("/watch-list", (req, res, next) => {
   User.findById(user._id)
     .populate("watchList")
     .then((user) => {
-      console.log(user);
       res.render("movies/watch-list", { user });
     });
 });
@@ -128,7 +124,6 @@ router.get("/up-coming", (req, res, next) => {
       `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}&language=en-US&page=1`
     )
     .then((response) => {
-      console.log(response);
       res.render("movies/up-coming", { upComing: response.data.results });
     })
     .catch((err) => next(err));
@@ -140,16 +135,28 @@ router.get("/random-movie", (req, res, next) => {
       `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.API_KEY}&language=en-US`
     )
     .then((latest) => {
-      console.log(latest);
       const randomId = Math.floor(Math.random() * latest.data.id);
       axios
         .get(
           `https://api.themoviedb.org/3/movie/${randomId}?api_key=${process.env.API_KEY}&language=en-US`
         )
         .then((response) => {
-            console.log(response)
-          res.render("movies/movie-random", { randomMovie: response.data });
-        });
+          console.log(response);
+          const randomMovie = response.data;
+          if(randomMovie.adult === true) {
+              console.log("keven")
+          }
+          return axios
+            .get(
+              `https://api.themoviedb.org/3/movie/${randomId}/videos?api_key=${process.env.API_KEY}&language=en-US`
+            )
+            .then((response) => {
+              console.log(response.data.results[0]);
+              const movieVideo = response.data.results[0];
+              res.render("movies/movie-random", { randomMovie, movieVideo });
+            });
+        })
+        .catch((err) => next(err));
     });
 });
 
