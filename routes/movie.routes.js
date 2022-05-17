@@ -8,6 +8,29 @@ const { response } = require("../app");
 /* const { response } = require("express"); */
 
 //isLoggedIn
+const getRandomMovie = async () => {
+  let latest = await axios.get(
+    `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.API_KEY}&language=en-US`
+  );
+
+  const randomId = Math.floor(Math.random() * latest.data.id);
+  let response = await axios.get(
+    `https://api.themoviedb.org/3/movie/${randomId}?api_key=${process.env.API_KEY}&language=en-US`
+  );
+
+  let randomMovie = response.data;
+
+  if (randomMovie.adult === true) {
+    getRandomMovie();
+  } else {
+    let videoResponse = await axios.get(
+      `https://api.themoviedb.org/3/movie/${randomId}/videos?api_key=${process.env.API_KEY}&language=en-US`
+    );
+    let movieVideo = videoResponse.data.results[0];
+    console.log(videoResponse.data);
+    return { randomMovie, movieVideo };
+  }
+};
 
 router.get("/movie-search", (req, res, next) => {
   const { title } = req.query;
@@ -128,36 +151,9 @@ router.get("/up-coming", (req, res, next) => {
     })
     .catch((err) => next(err));
 });
-
-router.get("/random-movie", (req, res, next) => {
-  axios
-    .get(
-      `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.API_KEY}&language=en-US`
-    )
-    .then((latest) => {
-      const randomId = Math.floor(Math.random() * latest.data.id);
-      axios
-        .get(
-          `https://api.themoviedb.org/3/movie/${randomId}?api_key=${process.env.API_KEY}&language=en-US`
-        )
-        .then((response) => {
-          console.log(response);
-          const randomMovie = response.data;
-          if(randomMovie.adult === true) {
-              console.log("keven")
-          }
-          return axios
-            .get(
-              `https://api.themoviedb.org/3/movie/${randomId}/videos?api_key=${process.env.API_KEY}&language=en-US`
-            )
-            .then((response) => {
-              console.log(response.data.results[0]);
-              const movieVideo = response.data.results[0];
-              res.render("movies/movie-random", { randomMovie, movieVideo });
-            });
-        })
-        .catch((err) => next(err));
-    });
+router.get("/random-movie", async (req, res, next) => {
+  let randomMovie = await getRandomMovie();
+  res.render("movies/movie-random", randomMovie);
 });
 
 module.exports = router;

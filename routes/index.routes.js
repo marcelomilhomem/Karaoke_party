@@ -7,7 +7,8 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/profile", (req, res, next) => {
-  res.render("profile"); 
+  const user = req.session.user;
+  res.render("profile", {user}); 
 });
 
 

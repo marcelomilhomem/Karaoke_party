@@ -32,6 +32,13 @@ router.post(
             });
         }
 
+        let imageUrl;
+        if (!req.file) {
+            imageUrl = null;
+        } else {
+            imageUrl = req.file.path;
+        }
+
         if (password.length < 8) {
             return res.status(400).render("auth/signup", {
                 errorMessage: "Your password needs to be at least 8 characters long.",
@@ -67,7 +74,7 @@ router.post(
                     // Create a user and save it in the database
                     return User.create({
                         username,
-                        password: hashedPassword,
+                        password: hashedPassword, imageUrl
                     });
                 })
                 .then((user) => {
