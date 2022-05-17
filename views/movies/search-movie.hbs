@@ -3,7 +3,10 @@
   <img class="movie-img" src="http://image.tmdb.org/t/p/w1280/{{poster_path}}" alt="" />
   {{title}}
   <a href="movie-detail/{{id}}">Detalis</a>
-  <form action="favourite-movies/{{id}}" method="POST">
+  <form action="/movies/favourite-movies/{{id}}" method="POST">
     <button type="submit">Add List</button>
+  </form>
+    <form action="/movies/watch-list/{{id}}" method="POST">
+    <button type="submit">Add Watch List</button>
   </form>
 {{/each}}

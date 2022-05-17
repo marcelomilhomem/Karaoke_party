@@ -16,9 +16,6 @@ router.get("/movie-search", (req, res, next) => {
       `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&query=${title}`
     )
     .then((response) => {
-      response.data.results.forEach((element) => {
-        console.log(element);
-      });
       res.render("movies/search-movie", { movieList: response.data.results });
     })
     .catch((err) => next(err));
@@ -49,32 +46,74 @@ router.get("/movie-detail/:movieID", (req, res, next) => {
 //
 
 router.get("/favourites", (req, res, next) => {
-    User.findById(req.session.user._id)
-    .then((user) => {
-        res.render("movies-list", {user: favourites})
-    })
-    })
+  const user = req.session.user
+
+  User.findById(user._id)
+  .populate("favourites")
+  .then((user) => {
+    console.log(user)
+    res.render("movies/movies-list", {user});
+  });
+});
 
 router.post("/favourite-movies/:id", (req, res, next) => {
+  console.log(req.body);
+  const { id } = req.params;
   axios
     .get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}&language=en-US`
     )
     .then((response) => {
       const movie = response.data;
-      return Movie.create({
-        title: movie.title,
+      console.log(movie);
+      Movie.create({
+        title: movie.original_title,
         image: movie.poster_path,
       })
-      .then((newMovie) => {
-        User.findByIdAndUpdate(req.session.user._id, {
-            $push: {favourites: newMovie.id}, 
+        .then((newMovie) => {
+          User.findByIdAndUpdate(req.session.user._id, {
+            $push: { favourites: newMovie.id },
+          })/*.then(() => {
+            res.redirect("/");
+          }); */
         })
-        .then((updatedFavourites) => {
-            res.render("movies/movies-list", {updatedFavourites})
-        })
+        .catch((err) => next(err));
+    });
+});
+
+router.get("/watch-list", (req, res, next) => {
+  const user = req.session.user
+
+  User.findById(user._id)
+  .populate("watchList")
+  .then((user) => {
+    console.log(user)
+    res.render("movies/watch-list", {user});
+  });
+});
+
+router.post("/watch-list/:id", (req, res, next) => {
+  console.log(req.body);
+  const { id } = req.params;
+  axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}&language=en-US`
+    )
+    .then((response) => {
+      const movie = response.data;
+      console.log(movie);
+      Movie.create({
+        title: movie.original_title,
+        image: movie.poster_path,
       })
-      .catch((err) => next(err));
+        .then((newMovie) => {
+          User.findByIdAndUpdate(req.session.user._id, {
+            $push: { watchList: newMovie.id },
+         })/*  .then(() => {
+            res.redirect("/watch-list");
+          }); */
+        })
+        .catch((err) => next(err));
     });
 });
 
