@@ -1,0 +1,11 @@
+<h1>Up coming</h1>
+{{#each upComing}}
+  <img
+    class="movie-img"
+    src="http://image.tmdb.org/t/p/w1280/{{poster_path}}"
+    alt=""
+  />
+  {{title}}
+  <a href="movie-detail/{{id}}">Detalis</a>
+
+{{/each}}
