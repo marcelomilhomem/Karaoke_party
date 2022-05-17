@@ -1,29 +1,26 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
-const userSchema = new Schema(
-  {
+const userSchema = new Schema({
     username: {
-      type: String,
-      unique: true,
-      required: true,
+        type: String,
+        unique: true,
+        required: true,
     },
     password: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
     imageUrl: {
-      type: String,
-      default: "images/favicon.ico",
+        type: String,
+        default: "",
     },
-    favourites: [{ type: Schema.Types.ObjectId, ref: "Movie",  }],
-    watchList: [{ type: Schema.Types.ObjectId, ref: "Movie",  }],
-  },
-  {
+    favourites: [{ type: Schema.Types.ObjectId, ref: "Movie" }],
+    watchList: [{ type: Schema.Types.ObjectId, ref: "Movie" }],
+}, {
     // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
-  }
-);
+});
 
 const User = model("User", userSchema);
 
