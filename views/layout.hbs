@@ -33,24 +33,26 @@
       <a href="auth/login">Login</a>
       <a href="auth/signup">Signup</a>
     </div>
-    <p>Welcome to Marven</p>
-  {{/unless}}
+    <a href="/login">Login</a>
+    <a href="/signup">Signup</a>
+  </div>
+  <p>Welcome to Marven</p>
+{{/unless}}
 
-  {{#if user}}
-    <div class="div-nav">
-      <h1>Marven</h1>
-      <div class="search-bar">
-        <form action="/movie-search" method="GET">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" name="title" />
-        </form>
-      </div>
-      <div class="dropdown">
-        <button class="dropbtn">{{user.username}}</button>
-        <div class="dropdown-content">
-          <a href="/profile">Profile</a>
-          <a href="auth/logout">Logout</a>
-        </div>
+{{#if user}}
+  <div class="div-nav">
+    <h1>Marven</h1>
+    <div class="search-bar">
+      <form action="/movies/movie-search" method="GET">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" name="title" />
+      </form>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">{{user.username}}</button>
+      <div class="dropdown-content">
+        <a href="/profile">Profile</a>
+        <a href="/logout">Logout</a>
       </div>
     </div>
     <p>Welcome to Marven, {{user.username}}</p>
