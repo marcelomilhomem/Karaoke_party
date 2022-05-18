@@ -28,13 +28,13 @@ const index = require("./routes/index.routes");
 app.use("/", index);
 
 const authRoutes = require("./routes/auth.routes");
-app.use("/", authRoutes);
+app.use("/auth", authRoutes);
 
 const moviesRoute = require("./routes/movie.routes");
-app.use("/", moviesRoute);
+app.use("/movies", moviesRoute);
 
 const userRoute = require("./routes/user.routes");
-app.use("/", userRoute);
+app.use("/user", userRoute);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

@@ -21,14 +21,17 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   {{#unless user}}
-  <div class="div-nav">
-    <div>
-      <form action="/movies/movie-search" method="GET">
-        <label>
-          Search Movie
-          <input type="text" name="title" />
-        </label>
-      </form>
+    <div class="div-nav">
+      <div>
+        <form action="/movies/movie-search" method="GET">
+          <label>
+            Search Movie
+            <input type="text" name="title" />
+          </label>
+        </form>
+      </div>
+      <a href="auth/login">Login</a>
+      <a href="auth/signup">Signup</a>
     </div>
     <a href="/login">Login</a>
     <a href="/signup">Signup</a>
@@ -52,9 +55,8 @@
         <a href="/logout">Logout</a>
       </div>
     </div>
-  </div>
-  <p>Welcome to Marven, {{user.username}}</p>
-{{/if}}
+    <p>Welcome to Marven, {{user.username}}</p>
+  {{/if}}
 
   <body>
 
