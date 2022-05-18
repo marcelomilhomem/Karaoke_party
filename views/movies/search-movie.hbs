@@ -1,5 +1,6 @@
 <h1><b>|</b> Movies </h1>
-<p class="sub-movie">Marven helps you select the perfect next show or movie to watch.</p>
+<p class="sub-movie">Marven helps you select the perfect next show or movie to
+  watch.</p>
 <div class="movies-div">
   {{#each movieList}}
     <div class="each-movie-div">
@@ -21,7 +22,7 @@
           <button class="button-style"><a
               href="movie-detail/{{id}}"
             >More</a></button>
-          <form action="/movies/favourite-movies/{{id}}" method="POST">
+          <form action="/favourite-movies/{{id}}" method="POST">
             <button class="button-list" type="submit"><i
                 class="heart-icon fa-solid fa-heart"
               ></i>

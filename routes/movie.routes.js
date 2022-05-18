@@ -44,7 +44,7 @@ router.get("/movies/movie-search", (req, res, next) => {
         .catch((err) => next(err));
 });
 
-router.get("/movies/movie-detail/:movieID", (req, res, next) => {
+router.get("/movie-detail/:movieID", (req, res, next) => {
     const { movieID } = req.params;
     axios
         .get(
@@ -68,7 +68,7 @@ router.get("/movies/movie-detail/:movieID", (req, res, next) => {
 //hbs fazer for each pelos favoritos
 //
 
-router.get("/movies/favourite-movies", (req, res, next) => {
+router.get("/favourite-movies", (req, res, next) => {
     const user = req.session.user;
 
     User.findById(user._id)
@@ -78,7 +78,7 @@ router.get("/movies/favourite-movies", (req, res, next) => {
         });
 });
 
-router.post("/movies/favourite-movies/:id", (req, res, next) => {
+router.post("/favourite-movies/:id", (req, res, next) => {
     const { id } = req.params;
     axios
         .get(
@@ -101,7 +101,7 @@ router.post("/movies/favourite-movies/:id", (req, res, next) => {
         });
 });
 
-router.get("/movies/watch-list", (req, res, next) => {
+router.get("/watch-list", (req, res, next) => {
     const user = req.session.user;
 
     User.findById(user._id)
@@ -111,7 +111,7 @@ router.get("/movies/watch-list", (req, res, next) => {
         });
 });
 
-router.post("/movies/watch-list/:id", (req, res, next) => {
+router.post("/watch-list/:id", (req, res, next) => {
     const { id } = req.params;
     axios
         .get(
@@ -134,14 +134,14 @@ router.post("/movies/watch-list/:id", (req, res, next) => {
         });
 });
 
-router.post("/movies/favourite-movies/:id/delete", (req, res, next) => {
+router.post("/favourite-movies/:id/delete", (req, res, next) => {
     const { id } = req.params;
     Movie.findByIdAndRemove(id)
         .then(() => res.redirect("/"))
         .catch((err) => next(err));
 });
 
-router.get("/movies/up-coming", (req, res, next) => {
+router.get("/up-coming", (req, res, next) => {
     axios
         .get(
             `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}&language=en-US&page=1`
@@ -151,7 +151,7 @@ router.get("/movies/up-coming", (req, res, next) => {
         })
         .catch((err) => next(err));
 });
-router.get("/movies/random-movie", async(req, res, next) => {
+router.get("/random-movie", async(req, res, next) => {
     let randomMovie = await getRandomMovie();
     res.render("movies/movie-random", randomMovie);
 });

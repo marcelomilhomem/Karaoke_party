@@ -5,7 +5,7 @@ const fileUploader = require("../config/cloudinary.config");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/user/:id/edit", isLoggedIn, (req, res, next) => {
+router.get("/:id/edit", isLoggedIn, (req, res, next) => {
     const { id } = req.params;
     User.findById(id)
         .then((user) => res.render("user/user-edit", user))
@@ -13,7 +13,7 @@ router.get("/user/:id/edit", isLoggedIn, (req, res, next) => {
 });
 
 router.post(
-    "/user/:id/edit",
+    "/:id/edit",
     fileUploader.single("userImage"),
     isLoggedIn,
     (req, res, next) => {
@@ -44,7 +44,7 @@ router.post(
         }
     }
 );
-router.post("/user/:id/delete", (req, res, next) => {
+router.post("/:id/delete", (req, res, next) => {
     const { id } = req.params;
     req.app.locals.currentUser = null;
     req.session.destroy();
