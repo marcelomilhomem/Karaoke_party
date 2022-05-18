@@ -1,12 +1,12 @@
 <h1>Movies</h1>
 {{#each user.favourites}}
-<img
-  class="movie-img"
-  src="http://image.tmdb.org/t/p/w1280/{{movieDetail.backdrop_path}}"
-  alt=""
-/>
-<h1>{{title}}</h1>
-<form action="/movies/favourite-movies/{{id}}/delete" method="POST">
-<button type="submit">DELETE MOVIE</button>
-</form>
+  <img
+    class="movie-img"
+    src="http://image.tmdb.org/t/p/w1280/{{movieDetail.backdrop_path}}"
+    alt=""
+  />
+  <h1>{{title}}</h1>
+  <form action="/movies/favourite-movies/{{id}}/delete" method="POST">
+    <button type="submit">DELETE MOVIE</button>
+  </form>
 {{/each}}
