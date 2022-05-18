@@ -1,0 +1,14 @@
+<h3>Edit User</h3>
+
+<form action="/user/{{_id}}/edit" method="POST" enctype="multipart/form-data">
+  <label>
+    Username
+    <input type="text" name="username" value="{{username}}" />
+  </label>
+  <label>
+    Password
+    <input type="password" name="password" value="{{password}}" />
+  </label>
+  <input type="file" name="userImage" value="{{imageUrl}}" />
+  <button type="submit">Update</button>
+</form>
