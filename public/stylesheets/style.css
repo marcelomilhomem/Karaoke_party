@@ -19,6 +19,7 @@ body {
   display: flex;
   gap: 1rem;
   justify-content: center;
+  height: 50px;
 }
 
 a {
@@ -31,8 +32,8 @@ a {
 input[type="text"] {
   width: 70%;
   margin: 8px 0;
-  margin-left: 2px;
   box-sizing: border-box;
+  background-color:#434547;
 }
 
 .search-bar {
@@ -73,6 +74,8 @@ input[type="text"] {
 .dropbtn {
   background-color: #242525;
   color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
 }
 
 .movies-div {
@@ -94,7 +97,7 @@ input[type="text"] {
 
 .movie-button {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
 }
@@ -139,18 +142,19 @@ span {
   color: #a0a0a0;
   display: flex;
   margin-left: 5px;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .movie-title {
   font-size: 20px;
+  text-align: start;
 }
 
-.movie-list-detail {
+/* .movie-list-detail {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-}
+} */
 
 .sub-movie {
   color: #a0a0a0;
@@ -182,14 +186,14 @@ b {
     font-size: 7px;
     margin-bottom: 7px;
   }
-  
+
   .button-list {
     border: none;
     background-color: #242525;
     color: white;
     font-size: 7px;
   }
-  
+
   .button-watch {
     border: none;
     background-color: #434547;
@@ -198,5 +202,9 @@ b {
     border-radius: 6px;
     color: #3f6fb2;
     font-weight: bold;
+  }
+
+  span {
+    font-size: 7px;
   }
 }
