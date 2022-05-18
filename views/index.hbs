@@ -1,22 +1,35 @@
-<h1>{{user.username}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
-{{#unless user}}
-  <form action="/movies/movie-search" method="GET">
-    <label>
-      Search Movie
-      <input type="text" name="title" />
-    </label>
-
-    <button type="submit">Submit</button>
-  </form>
-  <a href="auth/login">Login</a>
-  <a href="auth/signup">Signup</a>
+{{!-- {{#unless user}}
+  <div class="div-nav">
+    <div>
+      <form action="/movies/movie-search" method="GET">
+        <label>
+          Search Movie
+          <input type="text" name="title" />
+        </label>
+      </form>
+    </div>
+    <a href="auth/login">Login</a>
+    <a href="auth/signup">Signup</a>
+  </div>
+  <p>Welcome to Marven</p>
 {{/unless}}
+
 {{#if user}}
-  <a href="auth/logout">Logout</a>
-    <form action="/movies/movie-search" method="GET">
-    <label>
-      Search Movie
-      <input type="text" name="title" />
-    </label>
-{{/if}}
+  <div class="div-nav">
+    <h1>Marven</h1>
+    <div class="search-bar">
+      <form action="/movies/movie-search" method="GET">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" name="title" />
+      </form>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">{{user.username}}</button>
+      <div class="dropdown-content">
+        <a href="/profile">Profile</a>
+        <a href="auth/logout">Logout</a>
+      </div>
+    </div>
+  </div>
+  <p>Welcome to Marven, {{user.username}}</p>
+{{/if}} --}}
