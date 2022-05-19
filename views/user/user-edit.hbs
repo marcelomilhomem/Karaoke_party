@@ -1,6 +1,4 @@
-<h3>Edit User</h3>
-
-<form action="/user/{{_id}}/edit" method="POST" enctype="multipart/form-data">
+{{!-- <form action="/user/{{_id}}/edit" method="POST" enctype="multipart/form-data">
   <label>
     Username
     <input type="text" name="username" value="{{username}}" />
@@ -12,3 +10,21 @@
   <input type="file" name="userImage" value="{{imageUrl}}" />
   <button type="submit">Update</button>
 </form>
+ --}}
+<div class="login">
+  <form class="login-form" action="/user/{{_id}}/edit" method="POST" enctype="multipart/form-data">
+    <label>
+      <i class="fa-solid fa-user"></i>
+      <input type="text" name="username" placeholder="Username" value="{{username}}"/>
+    </label>
+    <label>
+      <i class="fa-solid fa-lock"></i>
+      <input class="password-label" type="password" name="password" placeholder="Password" value="{{password}}"/>
+    </label>
+    <label class="file-upload">
+      <input class="password-label" type="file" name="user-image" value="{{imageUrl}}" />
+      Upload File
+    </label>
+    <button  class="login-button" type="submit">Submit</button>
+  </form>
+</div>

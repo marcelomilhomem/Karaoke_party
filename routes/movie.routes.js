@@ -154,15 +154,19 @@ router.post("/movies/watch-list/:id/delete", isLoggedIn, (req, res, next) => {
     .catch((err) => next(err));
 });
 
-router.post("/movies/favourite-movies/:id/delete", isLoggedIn, (req, res, next) => {
-  const { id } = req.params;
-  Movie.findByIdAndRemove(id)
-    .then(() => res.redirect("/movies/favourite-movies"))
-    .catch((err) => next(err));
-});
+router.post(
+  "/movies/favourite-movies/:id/delete",
+  isLoggedIn,
+  (req, res, next) => {
+    const { id } = req.params;
+    Movie.findByIdAndRemove(id)
+      .then(() => res.redirect("/movies/favourite-movies"))
+      .catch((err) => next(err));
+  }
+);
 
 router.get("/movies/up-coming", isLoggedIn, (req, res, next) => {
-  const user = req.session.user
+  const user = req.session.user;
   axios
     .get(
       `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}&language=en-US&page=1`
@@ -174,11 +178,11 @@ router.get("/movies/up-coming", isLoggedIn, (req, res, next) => {
 });
 
 router.get("/movies/random-movie", isLoggedIn, async (req, res, next) => {
-  const user = req.session.user
+  const user = req.session.user;
 
   try {
     let randomMovie = await getRandomMovie();
-    res.render("movies/movie-random", {randomMovie, user});
+    res.render("movies/movie-random", randomMovie);
   } catch (error) {
     console.log(error);
   }

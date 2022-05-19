@@ -15,17 +15,6 @@
         <form class="delete-watch-form" action="/movies/watch-list/{{_id}}/delete" method="POST">
       <button class="delete-watch-list" type="submit">Remove</button>
         </div>
-        <div class="movie-list-detail">
-          <button class="button-style"><a
-              href="movie-detail/{{id}}"
-            >More</a></button>
-          <form action="favourite-movies/{{id}}" method="POST">
-            <button class="button-list" type="submit"><i
-                class="heart-icon fa-solid fa-heart"
-              ></i>
-              List</button>
-          </form>
-        </div>
     </div>
   {{/each}}
 </div>

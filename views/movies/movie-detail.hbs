@@ -24,7 +24,7 @@
     ></iframe>
   </div>
 </div>
-  <form action="/favourite-movies/{{movieDetail.id}}" method="POST">
+<form hidden action="/favourite-movies/{{movieDetail._id}}" method="POST">
   <div class="buttons-details">
     <button class="button-list-details" type="submit"><i
         class="heart-icon fa-solid fa-heart"
@@ -34,5 +34,5 @@
         class="plus-icon fa-solid fa-plus"
       ></i>
       Watch List</button>
-      </div>
-  </form>
+  </div>
+</form>
