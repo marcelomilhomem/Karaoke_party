@@ -77,7 +77,7 @@ router.get("/movies/movie-detail/:movieID", (req, res, next) => {
 //hbs fazer for each pelos favoritos
 //
 
-router.get("/movies/favourite-movies", (req, res, next) => {
+router.get("/movies/favourite-movies", isLoggedIn, (req, res, next) => {
   const user = req.session.user;
 
   User.findById(user._id)
@@ -87,7 +87,7 @@ router.get("/movies/favourite-movies", (req, res, next) => {
     });
 });
 
-router.post("/movies/favourite-movies/:id", (req, res, next) => {
+router.post("/movies/favourite-movies/:id", isLoggedIn, (req, res, next) => {
   const { id } = req.params;
   axios
     .get(
@@ -110,7 +110,7 @@ router.post("/movies/favourite-movies/:id", (req, res, next) => {
     });
 });
 
-router.get("/movies/watch-list", (req, res, next) => {
+router.get("/movies/watch-list", isLoggedIn, (req, res, next) => {
   const user = req.session.user;
 
   User.findById(user._id)
@@ -120,7 +120,7 @@ router.get("/movies/watch-list", (req, res, next) => {
     });
 });
 
-router.post("/movies/watch-list/:id", (req, res, next) => {
+router.post("/movies/watch-list/:id", isLoggedIn, (req, res, next) => {
   const { id } = req.params;
   axios
     .get(
@@ -144,7 +144,7 @@ router.post("/movies/watch-list/:id", (req, res, next) => {
     });
 });
 
-router.post("/movies/watch-list/:id/delete", (req, res, next) => {
+router.post("/movies/watch-list/:id/delete", isLoggedIn, (req, res, next) => {
   const { id } = req.params;
 
   Movie.findByIdAndRemove(id)
@@ -154,7 +154,7 @@ router.post("/movies/watch-list/:id/delete", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-router.post("/movies/favourite-movies/:id/delete", (req, res, next) => {
+router.post("/movies/favourite-movies/:id/delete", isLoggedIn, (req, res, next) => {
   const { id } = req.params;
   Movie.findByIdAndRemove(id)
     .then(() => res.redirect("/movies/favourite-movies"))
@@ -172,7 +172,7 @@ router.get("/movies/up-coming", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-router.get("/movies/random-movie", async (req, res, next) => {
+router.get("/movies/random-movie", isLoggedIn, async (req, res, next) => {
   try {
     let randomMovie = await getRandomMovie();
     console.log(randomMovie);

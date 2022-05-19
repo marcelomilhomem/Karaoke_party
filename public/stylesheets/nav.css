@@ -1,0 +1,87 @@
+.marven {
+  color: #ecd409;
+  font-family: "Babylonica", cursive;
+  align-self: center;
+}
+
+.div-nav {
+  display: flex;
+  justify-content: space-evenly;
+  height: 50px;
+}
+
+input[type="text"] {
+  width: 100%;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background-color: #434547;
+  padding: 6px;
+  border-radius: 10px;
+  font-size: 17px;
+}
+
+.lupa {
+  align-self: center;
+}
+
+.user-div {
+  align-self: center;
+}
+
+form {
+  width: 80%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  align-self: center;
+  background-color: #242525;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.search-bar {
+  margin-top: 15px;
+}
+
+.dropbtn {
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  align-self: center;
+}
+
+.dropdown-user {
+  background-color: black;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropbtn {
+  background-color: #242525;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+}

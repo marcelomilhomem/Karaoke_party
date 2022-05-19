@@ -13,7 +13,7 @@ const userSchema = new Schema({
     },
     imageUrl: {
         type: String,
-        default: "https://pbs.twimg.com/profile_images/990093841632903168/JpEYo8qH_400x400.jpg",
+        default: "",
     },
     favourites: [{ type: Schema.Types.ObjectId, ref: "Movie" }],
     watchList: [{ type: Schema.Types.ObjectId, ref: "Movie" }],

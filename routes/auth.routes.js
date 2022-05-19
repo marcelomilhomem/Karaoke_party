@@ -34,7 +34,7 @@ router.post(
 
         let imageUrl;
         if (!req.file) {
-            imageUrl = null;
+            imageUrl = "https://pbs.twimg.com/profile_images/990093841632903168/JpEYo8qH_400x400.jpg";
         } else {
             imageUrl = req.file.path;
         }

@@ -44,7 +44,7 @@ router.post(
         }
     }
 );
-router.post("/:id/delete", (req, res, next) => {
+router.post("/:id/delete", isLoggedIn, (req, res, next) => {
     const { id } = req.params;
     req.app.locals.currentUser = null;
     req.session.destroy();

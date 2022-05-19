@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Babylonica&family=Bellefair&family=Dangrek&family=Montserrat:ital,wght@1,100&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Babylonica&family=Bellefair&family=Dangrek&family=Montserrat:ital,wght@1,100&display=swap");
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -7,79 +7,12 @@ body {
   padding: 10px;
   background-color: black;
   color: white;
+  background-image: url("/images/back.jpg");
 }
 
 .movie-img {
   width: 190;
   height: 270px;
-}
-
-.div-nav {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  height: 50px;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-  align-self: center;
-  background-color: #242525;
-}
-
-input[type="text"] {
-  width: 70%;
-  margin: 8px 0;
-  box-sizing: border-box;
-  background-color: #434547;
-  padding: 6px;
-  border-radius: 6px;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
-}
-
-.search-bar {
-  margin-top: 15px;
-}
-
-.dropbtn {
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  align-self: center;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: white;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropbtn {
-  background-color: #242525;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 6px;
 }
 
 .movies-div {
@@ -97,6 +30,7 @@ input[type="text"] {
   width: 190px;
   height: 500px;
   background-color: #242525;
+  box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
 }
 
 .movie-button {
@@ -182,23 +116,44 @@ b {
 .profile-div {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 3rem;
 }
 
-.img-profile.div,
+.img-profile-div,
 .profile-links {
   flex-direction: column;
 }
 
+.profile-links {
+  align-self: center;
+}
+
 .profile-links > p > a {
-  background-color:#242525;
+  background-color: #242525;
   /* border-radius: 6px; */
   padding: 5px;
 }
 
 .delete-profile {
-  background-color: #C61919;
+  background-color: #c61919;
   border: none;
   /* border-radius: 6px; */
   color: white;
 }
+
+.favourites-movie-div {
+  height: 450px;
+  background-color: #242525;
+}
+
+.profile-img {
+  border-radius: 50%;
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 5px 15px;
+}
+
+.hello-profile {
+  font-family: "Babylonica", cursive;
+  font-size: 40px;
+  font-weight: normal;
+}
+
