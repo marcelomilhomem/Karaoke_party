@@ -11,7 +11,7 @@
       />
       <span><i class="star fa-solid fa-star"></i>{{vote_average}}</span>
       <div class="movie-title-div">
-      <p class="movie-title">{{title}}</p>
+        <p class="movie-title">{{title}}</p>
       </div>
       <div class="movie-button">
         <form action="/movies/watch-list/{{id}}" method="POST">
@@ -20,18 +20,18 @@
             ></i>
             Watch List</button>
         </form>
+        </div>
         <div class="movie-list-detail">
           <button class="button-style"><a
               href="movie-detail/{{id}}"
             >More</a></button>
-          <form action="/favourite-movies/{{id}}" method="POST">
+          <form action="favourite-movies/{{id}}" method="POST">
             <button class="button-list" type="submit"><i
                 class="heart-icon fa-solid fa-heart"
               ></i>
               List</button>
           </form>
         </div>
-      </div>
     </div>
   {{/each}}
 </div>

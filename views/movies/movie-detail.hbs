@@ -1,16 +1,23 @@
 <h1>{{movieDetail.original_title}}</h1>
-<img
-  class="movie-img"
-  src="http://image.tmdb.org/t/p/w1280/{{movieDetail.backdrop_path}}"
-  alt=""
-/>
-<p>{{movieDetail.overview}}</p>
-<p>{{movieDetail.release_date}}</p>
-<p>{{movieDetail.runtime}}</p>
-<p>{{movieDetail.vote_average}}</p>
-{{#each movieDetail.genres}}
-  <p>{{name}}</p>
-{{/each}}
+<p>{{movieDetail.release_date}}, Run time: {{movieDetail.runtime}}</p>
+<div class="movie-detail-div">
+  {{!--   <div>
+    <img
+      class="movie-img-detail"
+      src="http://image.tmdb.org/t/p/w1280/{{movieDetail.backdrop_path}}"
+      alt=""
+    />
+  </div> --}}
+  <div class="details-movie">
+    <p>{{movieDetail.overview}}</p>
+    <p class="small-details"><i class="star fa-solid fa-star"></i>{{movieDetail.vote_average}}
+      {{#each movieDetail.genres}}
+        {{name}}
+      {{/each}}
+    </p>
+  </div>
+</div>
+<div class="movie-video">
 <iframe
   width="560"
   height="315"
@@ -20,6 +27,16 @@
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
 ></iframe>
+</div>
+<div class="buttons-details">
 <form action="/favourite-movies/{{movieDetail.id}}" method="POST">
-    <button type="submit">Add List</button>
-  </form>
+  <button class="button-list-details" type="submit"><i
+      class="heart-icon fa-solid fa-heart"
+    ></i>
+    List</button>
+  <button class="button-watch-details" type="submit"><i
+      class="plus-icon fa-solid fa-plus"
+    ></i>
+    Watch List</button>
+</form>
+</div>

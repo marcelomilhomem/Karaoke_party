@@ -1,12 +1,16 @@
-<h1>Profile</h1>
-<p>{{user.username}}</p>
-<img src="{{user.imageUrl}}" alt="user-image" />
-<h1>Don't know what to see today????????
-  <a href="movies/random-movie">CLICK HERE</a></h1>
-<a href="movies/watch-list">My Watch List</a>
-<a href="movies/favourite-movies">List</a>
-<a href="/auth/logout">Logout</a>
-<a href="/{{user._id}}/edit">edit</a>
-<form action="/{{user._id}}/delete" method="post">
-  <button type="submit">Delete Profile</button></form>
-<a href="/">Back to main page</a>
+<div class="profile-div">
+  <div class="img-profile.div">
+    <p>Hello, {{user.username}}</p>
+    <img src="{{user.imageUrl}}" alt="user-image" />
+  </div>
+  <div class="profile-links">
+    <p><a href="movies/random-movie">Random Movie</a></p>
+    <p><a href="movies/watch-list">My Watch List</a></p>
+    <p><a href="movies/favourite-movies">List</a></p>
+    <p><a href="/auth/logout">Logout</a></p>
+    <p><a href="/{{user._id}}/edit">Edit Profile</a></p>
+    <p><a href="/">Back to main page</a></p>
+    <form action="/{{user._id}}/delete" method="post">
+      <button class="delete-profile" type="submit">Delete Profile</button></form>
+  </div>
+</div>

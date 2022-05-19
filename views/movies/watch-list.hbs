@@ -1,4 +1,29 @@
 <h1>Watch List</h1>
 {{#each user.watchList}}
-<h1>{{title}}</h1>
+<div class="each-movie-div">
+      <img
+        class="movie-img"
+        src="http://image.tmdb.org/t/p/w1280/{{image}}"
+        alt=""
+      />
+      <span><i class="star fa-solid fa-star"></i>{{rating}}</span>
+      <div class="movie-title-div">
+        <p class="movie-title">{{title}}</p>
+      </div>
+      <div class="movie-button">
+          <button class="button-watch"><i
+              class="plus-icon fa-solid fa-plus"
+            ></i>
+            Watch List</button>
+        </form>
+        </div>
+        <div class="movie-list-detail">
+          <button class="button-style"><a>More</a></button>
+            <button class="button-list" type="submit"><i
+                class="heart-icon fa-solid fa-heart"
+              ></i>
+              List</button>
+          </form>
+        </div>
+    </div>
 {{/each}}

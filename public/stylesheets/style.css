@@ -3,7 +3,6 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  font-family: "Aldrich", sans-serif;
   margin: 0;
   padding: 10px;
   background-color: black;
@@ -34,6 +33,11 @@ input[type="text"] {
   margin: 8px 0;
   box-sizing: border-box;
   background-color: #434547;
+  padding: 6px;
+  border-radius: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
 }
 
 .search-bar {
@@ -175,52 +179,26 @@ b {
   height: 70px;
 }
 
-@media (max-width: 500px) {
-  .each-movie-div {
-    width: 100px;
-    height: 270px;
-    background-color: #242525;
-  }
-  .movie-img {
-    width: 100px;
-    height: 150px;
-  }
+.profile-div {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
 
-  .movie-title {
-    font-size: 10px;
-  }
+.img-profile.div,
+.profile-links {
+  flex-direction: column;
+}
 
-  .button-style {
-    border: none;
-    background-color: #242525;
-    color: white;
-    font-size: 7px;
-    margin-bottom: 7px;
-  }
+.profile-links > p > a {
+  background-color:#242525;
+  /* border-radius: 6px; */
+  padding: 5px;
+}
 
-  .button-list {
-    border: none;
-    background-color: #242525;
-    color: white;
-    font-size: 7px;
-  }
-
-  .button-watch {
-    border: none;
-    background-color: #434547;
-    font-size: 7px;
-    padding: 5px 15px;
-    border-radius: 6px;
-    color: #3f6fb2;
-    font-weight: bold;
-  }
-
-  span {
-    font-size: 7px;
-  }
-
-  .movie-title-div {
-    width: 100px;
-    height: 30px;
-  }
+.delete-profile {
+  background-color: #C61919;
+  border: none;
+  /* border-radius: 6px; */
+  color: white;
 }

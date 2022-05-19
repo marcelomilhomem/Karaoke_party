@@ -131,6 +131,7 @@ router.post("/movies/watch-list/:id", (req, res, next) => {
       Movie.create({
         title: movie.original_title,
         image: movie.poster_path,
+        rating: movie.vote_average,
       })
         .then((newMovie) => {
           User.findByIdAndUpdate(req.session.user._id, {
