@@ -18,7 +18,7 @@ router.post(
     isLoggedIn,
     (req, res, next) => {
         const { id } = req.params;
-        const { username, password } = req.body;
+        const { username, password, imageUrl } = req.body;
         //    console.log(req.file);
         if (req.file) {
             return User.findByIdAndUpdate(
