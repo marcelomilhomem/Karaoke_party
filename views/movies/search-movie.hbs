@@ -10,7 +10,9 @@
         alt=""
       />
       <span><i class="star fa-solid fa-star"></i>{{vote_average}}</span>
+      <div class="movie-title-div">
       <p class="movie-title">{{title}}</p>
+      </div>
       <div class="movie-button">
         <form action="/movies/watch-list/{{id}}" method="POST">
           <button class="button-watch" type="submit"><i
