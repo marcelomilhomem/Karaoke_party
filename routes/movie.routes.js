@@ -33,7 +33,7 @@ const getRandomMovie = async () => {
       return { randomMovie, movieVideo };
     }
   } catch (error) {
-      getRandomMovie();
+    getRandomMovie();
   }
 };
 
@@ -103,7 +103,7 @@ router.post("/movies/favourite-movies/:id", (req, res, next) => {
           User.findByIdAndUpdate(req.session.user._id, {
             $push: { favourites: newMovie.id },
           }).then(() => {
-            res.redirect("/");
+            res.redirect("/movies/favourite-movies");
           });
         })
         .catch((err) => next(err));
@@ -137,17 +137,27 @@ router.post("/movies/watch-list/:id", (req, res, next) => {
           User.findByIdAndUpdate(req.session.user._id, {
             $push: { watchList: newMovie.id },
           }).then(() => {
-            res.redirect("/");
+            res.redirect("/movies/watch-list");
           });
         })
         .catch((err) => next(err));
     });
 });
 
+router.post("/movies/watch-list/:id/delete", (req, res, next) => {
+  const { id } = req.params;
+
+  Movie.findByIdAndRemove(id)
+    .then(() => {
+      res.redirect("/movies/watch-list");
+    })
+    .catch((err) => next(err));
+});
+
 router.post("/movies/favourite-movies/:id/delete", (req, res, next) => {
   const { id } = req.params;
   Movie.findByIdAndRemove(id)
-    .then(() => res.redirect("/"))
+    .then(() => res.redirect("/movies/favourite-movies"))
     .catch((err) => next(err));
 });
 
