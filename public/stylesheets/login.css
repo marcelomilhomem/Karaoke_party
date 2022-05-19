@@ -1,0 +1,62 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-form {
+  display: flex;
+  width: max-content;
+  padding: 12px 20px;
+  margin: 8px 0;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
+
+.login-button {
+  background-color: #ecd409;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 6px;
+}
+
+.password-label {
+  width: 100%;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background-color: #434547;
+  padding: 6px;
+  border-radius: 10px;
+  font-size: 17px;
+}
+
+.hi {
+  display: flex;
+}
+
+.file-upload {
+  background-color: #242525;
+  border: none;
+  padding: 10px;
+  color: white;
+  padding: 10px 85px;
+  border-radius: 6px;
+}
+
+input[type="file"] {
+    display: none;
+}

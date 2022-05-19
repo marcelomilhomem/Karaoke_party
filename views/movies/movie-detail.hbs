@@ -1,43 +1,38 @@
 <h1><b>|</b> Movie Detail </h1>
-<h1>{{movieDetail.original_title}}</h1>
-<p>{{movieDetail.release_date}}, Run time: {{movieDetail.runtime}}</p>
-<div class="movie-detail-div">
-  {{!--   <div>
-    <img
-      class="movie-img-detail"
-      src="http://image.tmdb.org/t/p/w1280/{{movieDetail.backdrop_path}}"
-      alt=""
-    />
-  </div> --}}
+<div class="movie-detail">
   <div class="details-movie">
+    <h1>{{movieDetail.original_title}}</h1>
+    <p>{{movieDetail.release_date}}, Run time: {{movieDetail.runtime}}</p>
     <p>{{movieDetail.overview}}</p>
-    <p class="small-details"><i class="star fa-solid fa-star"></i>{{movieDetail.vote_average}}
+    <p class="small-details"><i
+        class="star fa-solid fa-star"
+      ></i>{{movieDetail.vote_average}}
       {{#each movieDetail.genres}}
         {{name}}
       {{/each}}
     </p>
   </div>
+  <div class="movie-video">
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/{{movieVideo}}"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
 </div>
-<div class="movie-video">
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/{{movieVideo}}"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-></iframe>
-</div>
-<div class="buttons-details">
-<form action="/favourite-movies/{{movieDetail.id}}" method="POST">
-  <button class="button-list-details" type="submit"><i
-      class="heart-icon fa-solid fa-heart"
-    ></i>
-    List</button>
-  <button class="button-watch-details" type="submit"><i
-      class="plus-icon fa-solid fa-plus"
-    ></i>
-    Watch List</button>
-</form>
-</div>
+  <form action="/favourite-movies/{{movieDetail.id}}" method="POST">
+  <div class="buttons-details">
+    <button class="button-list-details" type="submit"><i
+        class="heart-icon fa-solid fa-heart"
+      ></i>
+      List</button>
+    <button class="button-watch-details" type="submit"><i
+        class="plus-icon fa-solid fa-plus"
+      ></i>
+      Watch List</button>
+      </div>
+  </form>

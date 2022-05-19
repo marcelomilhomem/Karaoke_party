@@ -1,32 +1,51 @@
 <h1><b>|</b> Random </h1>
-{{randomMovie.original_title}}
-{{randomMovie.release_data}}
-{{randomMovie.overview}}
-<img
-  class="movie-img"
-  src="http://image.tmdb.org/t/p/w1280/{{randomMovie.poster_path}}"
-  alt=""
-/>
-{{randomMovie.runtime}}
-{{#if movieVideo.key}}
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/{{movieVideo.key}}"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-></iframe>
-{{else}}
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-></iframe>
+<div class="movie-detail">
+  <div class="details-movie">
+    <h1>{{randomMovie.original_title}}</h1>
+    <p>{{randomMovie.release_date}}, Run time: {{randomMovie.runtime}}</p>
+    <p>{{randomMovie.overview}}</p>
+    <p class="small-details"><i
+        class="star fa-solid fa-star"
+      ></i>{{randomMovie.vote_average}}
+      {{#each randomMovie.genres}}
+        {{name}}
+      {{/each}}
+    </p>
+  </div>
+  <div class="movie-video">
+    {{#if movieVideo.key}}
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/{{movieVideo.key}}"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    {{else}}
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/rg6CiPI6h2g"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
 
-{{/if}}
+    {{/if}}
+  </div>
+</div>
+<form action="/favourite-movies/{{randomMovie.id}}" method="POST">
+  <div class="buttons-details">
+    <button class="button-list-details" type="submit"><i
+        class="heart-icon fa-solid fa-heart"
+      ></i>
+      List</button>
+    <button class="button-watch-details" type="submit"><i
+        class="plus-icon fa-solid fa-plus"
+      ></i>
+      Watch List</button>
+  </div>
+</form>

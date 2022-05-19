@@ -1,14 +1,23 @@
-<form action="/login" method="POST">
-   <label> Username
-      <input type="text" name="username">
-   </label>
-   <label> Password
-      <input type="password" name="password">
-   </label>
+<div class="login">
+  <form class="login-form" action="/login" method="POST">
+    <label>
+      <i class="fa-solid fa-user"></i>
+      <input type="text" name="username" placeholder="Username" />
+    </label>
+    <label>
+      <i class="fa-solid fa-lock"></i>
+      <input
+        class="password-label"
+        type="password"
+        name="password"
+        placeholder="Password"
+      />
+    </label>
 
-   <button type="submit">Submit</button>
-</form>
+    <button class="login-button" type="submit">Submit</button>
+  </form>
+</div>
 
 {{#if errorMessage}}
-   {{errorMessage}}
+  {{errorMessage}}
 {{/if}}
