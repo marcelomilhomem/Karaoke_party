@@ -161,22 +161,24 @@ router.post("/movies/favourite-movies/:id/delete", isLoggedIn, (req, res, next) 
     .catch((err) => next(err));
 });
 
-router.get("/movies/up-coming", (req, res, next) => {
+router.get("/movies/up-coming", isLoggedIn, (req, res, next) => {
+  const user = req.session.user
   axios
     .get(
       `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.API_KEY}&language=en-US&page=1`
     )
     .then((response) => {
-      res.render("movies/up-coming", { upComing: response.data.results });
+      res.render("movies/up-coming", { upComing: response.data.results, user });
     })
     .catch((err) => next(err));
 });
 
 router.get("/movies/random-movie", isLoggedIn, async (req, res, next) => {
+  const user = req.session.user
+
   try {
     let randomMovie = await getRandomMovie();
-    console.log(randomMovie);
-    res.render("movies/movie-random", randomMovie);
+    res.render("movies/movie-random", {randomMovie, user});
   } catch (error) {
     console.log(error);
   }

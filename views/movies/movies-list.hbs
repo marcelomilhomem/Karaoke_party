@@ -1,17 +1,31 @@
 <h1><b>|</b> Favourite Movies </h1>
-{{#each user.favourites}}
-  <div class="favourites-movie-div">
-    <img
-      class="movie-img"
-      src="http://image.tmdb.org/t/p/w1280/{{image}}"
-      alt=""
-    />
-    <span><i class="star fa-solid fa-star"></i>{{rating}}</span>
-    <div class="movie-title-div">
-      <p class="movie-title">{{title}}</p>
+<div class="movies-div">
+  {{#each user.favourites}}
+    <div class="each-movie-div">
+      <img
+        class="movie-img"
+        src="http://image.tmdb.org/t/p/w1280/{{image}}"
+        alt=""
+      />
+      <span><i class="star fa-solid fa-star"></i>{{rating}}</span>
+      <div class="movie-title-div">
+        <p class="movie-title">{{title}}</p>
+      </div>
+      <div class="movie-button">
+        <form class="delete-watch-form" action="/movies/favourite-movies/{{_id}}/delete" method="POST">
+      <button class="delete-watch-list" type="submit">Remove</button>
+        </div>
+        <div class="movie-list-detail">
+          <button class="button-style"><a
+              href="movie-detail/{{id}}"
+            >More</a></button>
+          <form action="favourite-movies/{{id}}" method="POST">
+            <button class="button-list" type="submit"><i
+                class="heart-icon fa-solid fa-heart"
+              ></i>
+              List</button>
+          </form>
+        </div>
     </div>
-    <form action="/movies/favourite-movies/{{_id}}/delete" method="POST">
-      <button type="submit">DELETE MOVIE</button>
-    </form>
-  </div>
-{{/each}}
+  {{/each}}
+</div>

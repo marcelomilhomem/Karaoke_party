@@ -181,6 +181,8 @@ b {
   display: flex;
   gap: 3rem;
   justify-content: center;
+  height: 60vh;
+  align-items: center;
 }
 
 .details-movie {
@@ -222,3 +224,12 @@ b {
   color: #3f6fb2;
   font-weight: bold;
 }
+.delete-watch-list {
+  border: none;
+  background-color: #8A2222;
+  color: white;
+  padding: 8px;
+  border-radius: 6px;
+  align-self: center;
+}
+
