@@ -31,7 +31,7 @@
 
   .button-watch {
     border: none;
-    background-color: #434547;
+    background-color: #383838;
     font-size: 7px;
     padding: 5px 15px;
     border-radius: 6px;
@@ -147,4 +147,18 @@
   .welcome {
     font-size: 50px;
   }
+
+  .button-style-hover:hover {
+    color: #ecd409;
+    text-decoration: none;
+  }
+
+  .button-list:hover {
+    color: #ecd409;
+  }
+
+  .button-watch:hover {
+    background-color: #4D4D4D;
+  }
+  
 }

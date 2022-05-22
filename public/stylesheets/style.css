@@ -7,7 +7,7 @@ body {
   padding: 10px;
   background-color: black;
   color: white;
-  background-image: url("/images/back.jpg");
+  background-color: black;
 }
 
 .movie-img {
@@ -28,7 +28,7 @@ body {
 
 .each-movie-div {
   width: 190px;
-  height: 500px;
+  height: 470px;
   background-color: #242525;
   box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
 }
@@ -40,12 +40,21 @@ body {
   gap: 0.5rem;
 }
 
+.b-username {
+  color: #8A2222;
+}
+
 .button-style {
   border: none;
   background-color: #242525;
   color: white;
   font-size: 15px;
   margin-bottom: 15px;
+}
+
+.button-style-hover:hover {
+  color: #ecd409;
+  text-decoration: none;
 }
 
 .button-list {
@@ -55,15 +64,24 @@ body {
   font-size: 15px;
 }
 
+.button-list:hover {
+  color: #ecd409;
+}
+
 .button-watch {
   border: none;
-  background-color: #434547;
+  background-color: #383838;
   font-size: 15px;
   padding: 10px 35px;
   border-radius: 6px;
   color: #3f6fb2;
   font-weight: bold;
 }
+
+.button-watch:hover {
+  background-color: #4D4D4D;
+}
+
 
 .plus-icon {
   color: #3f6fb2;
@@ -132,16 +150,16 @@ b {
 }
 
 .profile-links > p > a {
-  background-color: #242525;
+  border:0.1px solid #ecd409;
   /* border-radius: 6px; */
   padding: 5px;
 }
 
 .delete-profile {
-  background-color: #c61919;
-  border: none;
+  border:0.1px solid #c61919;
   /* border-radius: 6px; */
   color: white;
+  background-color: black;
 }
 
 .favourites-movie-div {
@@ -167,7 +185,7 @@ b {
   margin-top: 50px;
   color: #ecd409;
   font-family: "Babylonica", cursive;
-  font-size: 100px;
+  font-size: 40px;
   font-weight: lighter;
   align-items: center;
   margin-top: 200px;
@@ -235,3 +253,12 @@ b {
   align-self: center;
 }
 
+h1 {
+  padding: 15px 0px;
+}
+
+.profile-links-hover:hover {
+  text-decoration: none;
+  background-color: #383838;
+  color: white;
+}

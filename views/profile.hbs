@@ -4,13 +4,13 @@
     <img class="profile-img" src="{{user.imageUrl}}" alt="user-image" />
   </div>
   <div class="profile-links">
-    <p><a href="movies/random-movie">Random Movie</a></p>
-    <p><a href="movies/watch-list">My Watch List</a></p>
-    <p><a href="movies/favourite-movies">List</a></p>
-    <p><a href="movies/up-coming">Up coming</a></p>
-    <p><a href="/logout">Logout</a></p>
-    <p><a href="/{{user._id}}/edit">Edit Profile</a></p>
-    <p><a href="/">Back to main page</a></p>
+    <p><a class="profile-links-hover" href="movies/random-movie">Random Movie</a></p>
+    <p><a class="profile-links-hover" href="movies/watch-list">My Watch List</a></p>
+    <p><a class="profile-links-hover" href="movies/favourite-movies">List</a></p>
+    <p><a class="profile-links-hover" href="movies/up-coming">Up coming</a></p>
+    <p><a class="profile-links-hover" href="/logout">Logout</a></p>
+    <p><a class="profile-links-hover" href="/{{user._id}}/edit">Edit Profile</a></p>
+    <p><a class="profile-links-hover" href="/">Back to main page</a></p>
     <form action="/{{user._id}}/delete" method="post">
       <button class="delete-profile" type="submit">Delete Profile</button></form>
   </div>

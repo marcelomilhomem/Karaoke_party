@@ -20,18 +20,19 @@
             ></i>
             Watch List</button>
         </form>
-        </div>
-        <div class="movie-list-detail">
-          <button class="button-style"><a
-              href="movie-detail/{{id}}"
-            >More</a></button>
-          <form action="favourite-movies/{{id}}" method="POST">
-            <button class="button-list" type="submit"><i
-                class="heart-icon fa-solid fa-heart"
-              ></i>
-              List</button>
-          </form>
-        </div>
+      </div>
+      <div class="movie-list-detail">
+        <button class="button-style"><a
+            class="button-style-hover"
+            href="movie-detail/{{id}}"
+          >More</a></button>
+        <form action="favourite-movies/{{id}}" method="POST">
+          <button class="button-list" type="submit"><i
+              class="heart-icon fa-solid fa-heart"
+            ></i>
+            List</button>
+        </form>
+      </div>
     </div>
   {{/each}}
 </div>

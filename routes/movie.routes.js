@@ -165,7 +165,7 @@ router.post(
   }
 );
 
-router.get("/movies/up-coming", isLoggedIn, (req, res, next) => {
+router.get("/movies/up-coming", (req, res, next) => {
   const user = req.session.user;
   axios
     .get(
@@ -177,7 +177,7 @@ router.get("/movies/up-coming", isLoggedIn, (req, res, next) => {
     .catch((err) => next(err));
 });
 
-router.get("/movies/random-movie", isLoggedIn, async (req, res, next) => {
+router.get("/movies/random-movie", async (req, res, next) => {
   const user = req.session.user;
 
   try {

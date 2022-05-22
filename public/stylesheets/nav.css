@@ -1,23 +1,62 @@
 .marven {
   color: #ecd409;
-  font-family: "Babylonica", cursive;
   align-self: center;
+  font-weight: lighter;
+  font-size: 30px;
+  font-style: italic;
 }
 
-.div-nav {
-  display: flex;
+.navbar {
+  background-color: #181818;
   justify-content: space-evenly;
-  height: 50px;
+}
+
+.navhover:hover {
+  background-color: #2A2A2A;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  align-self: center;
+  padding: 10px 20px;
+  border-radius: 2px;
+  font-weight: bolder;
 }
 
 input[type="text"] {
   width: 100%;
   margin: 8px 0;
   box-sizing: border-box;
-  background-color: #434547;
-  padding: 6px;
   border-radius: 10px;
   font-size: 17px;
+}
+
+form {
+  border: none;
+}
+
+.collapse {
+  gap: 5rem;
+}
+
+.navbar-toggler {
+  background-color: #454545;
+}
+
+.mr-auto {
+  gap: 2rem;
+}
+
+.b-login {
+  color: #3f6fb2;
+}
+
+/* .div-nav {
+  display: flex;
+  justify-content: space-evenly;
+  height: 50px;
 }
 
 .lupa {
@@ -26,15 +65,6 @@ input[type="text"] {
 
 .user-div {
   align-self: center;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-  align-self: center;
-  background-color: #242525;
-  padding: 10px;
-  border-radius: 2px;
 }
 
 form {
@@ -84,4 +114,4 @@ form {
   color: white;
   padding: 10px 15px;
   border-radius: 6px;
-}
+} */
