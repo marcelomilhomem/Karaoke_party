@@ -2,11 +2,11 @@
 <div class="movies-div">
   {{#each upComing}}
     <div class="each-movie-div">
-      <img
+      <a href="movie-detail/{{id}}"> <img
         class="movie-img"
         src="http://image.tmdb.org/t/p/w1280/{{poster_path}}"
         alt=""
-      />
+      /></a>
       <span><i class="star fa-solid fa-star"></i>{{vote_average}}</span>
       <div class="movie-title-div">
         <p class="movie-title">{{title}}</p>
